@@ -14,7 +14,7 @@ const BasicUsage = () => {
 
   return (
     <div>
-      <StyledHeader>Basic Usage</StyledHeader>
+      <StyledHeader fontSize={14}>Basic Usage</StyledHeader>
       <OptionsComponent
         align={align}
         setAlign={setAlign}
@@ -28,13 +28,9 @@ const BasicUsage = () => {
         justify={justify}
         flexDirection={flexDirection}
       >
-        <StyledFlexElement column={6} style={{ height: '50px' }}>
-          1
-        </StyledFlexElement>
+        <StyledFlexElement column={6}>1</StyledFlexElement>
         <StyledFlexElement column={6}>2</StyledFlexElement>
-        <StyledFlexElement column={6} style={{ height: '150px' }}>
-          3
-        </StyledFlexElement>
+        <StyledFlexElement column={6}>3</StyledFlexElement>
       </StyledWrapper>
     </div>
   )

@@ -20,35 +20,43 @@ function _objectWithoutPropertiesLoose(source, excluded) {
 
 var StyledHeader = styled.div(function (_ref) {
   var color = _ref.color;
-  return "\n    width: 100%;\n    background: " + (!color ? 'fff' : color) + "\n    box-sizing: border-box;\n    margin: 0;\n    color: rgba(0,0,0,.85);\n    font-size: 14px;\n    line-height: 1.5715;\n    list-style: none;\n    position: relative;\n    padding: 16px 24px;\n    background-color: #fff;\n";
+  return "\n    width: 100%;\n    background: " + (!color ? 'fff' : color) + "\n    box-sizing: border-box;\n    margin: 0;\n    color: rgba(0,0,0,.85);\n    line-height: 1.5715;\n    list-style: none;\n    position: relative;\n    padding: 16px 24px;\n    background-color: #fff;\n";
+});
+var StyledHeaderWrapper = styled.div(function (_ref2) {
+  var fontSize = _ref2.fontSize;
+  return "\n  font-size: " + fontSize + "px;\n";
 });
 
 var Header = function Header(_ref) {
-  var color = _ref.color,
+  var fontSize = _ref.fontSize,
       children = _ref.children,
-      rest = _objectWithoutPropertiesLoose(_ref, ["color", "children"]);
+      rest = _objectWithoutPropertiesLoose(_ref, ["fontSize", "children"]);
 
-  return React.createElement(StyledHeader, Object.assign({
-    color: color
-  }, rest), children);
+  return React.createElement(StyledHeaderWrapper, {
+    fontSize: fontSize
+  }, React.createElement(StyledHeader, Object.assign({}, rest), children));
 };
 
 var StyledFlexElement = styled.div(function (_ref) {
   var column = _ref.column;
   return "\n flex: " + column / 24 + ";\n";
 });
+var StyledWrapper = styled.div(function (_ref2) {
+  var color = _ref2.color;
+  return "\n  color: " + (color || 'black') + ";\n";
+});
 
 var FlexElement = function FlexElement(_ref) {
-  var column = _ref.column,
+  var color = _ref.color,
       children = _ref.children,
-      rest = _objectWithoutPropertiesLoose(_ref, ["column", "children"]);
+      rest = _objectWithoutPropertiesLoose(_ref, ["color", "children"]);
 
-  return React.createElement(StyledFlexElement, Object.assign({
-    column: column
-  }, rest), children);
+  return React.createElement(StyledWrapper, {
+    color: color
+  }, React.createElement(StyledFlexElement, Object.assign({}, rest), children));
 };
 
-var StyledWrapper = styled.div(function (_ref) {
+var StyledWrapper$1 = styled.div(function (_ref) {
   var _ref$flexDirection = _ref.flexDirection,
       flexDirection = _ref$flexDirection === void 0 ? 'row' : _ref$flexDirection,
       _ref$wrap = _ref.wrap,
@@ -61,17 +69,10 @@ var StyledWrapper = styled.div(function (_ref) {
 });
 
 var Wrapper = function Wrapper(_ref) {
-  var align = _ref.align,
-      flexDirection = _ref.flexDirection,
-      justify = _ref.justify,
-      children = _ref.children,
-      rest = _objectWithoutPropertiesLoose(_ref, ["align", "flexDirection", "justify", "children"]);
+  var children = _ref.children,
+      rest = _objectWithoutPropertiesLoose(_ref, ["children"]);
 
-  return React.createElement(StyledWrapper, Object.assign({
-    align: align,
-    flexDirection: flexDirection,
-    justify: justify
-  }, rest), children);
+  return React.createElement(StyledWrapper$1, Object.assign({}, rest), children);
 };
 
 exports.FlexElement = FlexElement;

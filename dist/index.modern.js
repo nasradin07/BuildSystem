@@ -9,22 +9,26 @@ const StyledHeader = styled.div(({
     box-sizing: border-box;
     margin: 0;
     color: rgba(0,0,0,.85);
-    font-size: 14px;
     line-height: 1.5715;
     list-style: none;
     position: relative;
     padding: 16px 24px;
     background-color: #fff;
 `);
+const StyledHeaderWrapper = styled.div(({
+  fontSize
+}) => `
+  font-size: ${fontSize}px;
+`);
 
 const Header = ({
-  color,
+  fontSize,
   children,
   ...rest
 }) => {
-  return React.createElement(StyledHeader, Object.assign({
-    color: color
-  }, rest), children);
+  return React.createElement(StyledHeaderWrapper, {
+    fontSize: fontSize
+  }, React.createElement(StyledHeader, Object.assign({}, rest), children));
 };
 
 const StyledFlexElement = styled.div(({
@@ -32,18 +36,23 @@ const StyledFlexElement = styled.div(({
 }) => `
  flex: ${column / 24};
 `);
+const StyledWrapper = styled.div(({
+  color
+}) => `
+  color: ${color || 'black'};
+`);
 
 const FlexElement = ({
-  column,
+  color,
   children,
   ...rest
 }) => {
-  return React.createElement(StyledFlexElement, Object.assign({
-    column: column
-  }, rest), children);
+  return React.createElement(StyledWrapper, {
+    color: color
+  }, React.createElement(StyledFlexElement, Object.assign({}, rest), children));
 };
 
-const StyledWrapper = styled.div(({
+const StyledWrapper$1 = styled.div(({
   flexDirection: _flexDirection = 'row',
   wrap: _wrap = false,
   justify: _justify = 'center',
@@ -57,17 +66,10 @@ const StyledWrapper = styled.div(({
 `);
 
 const Wrapper = ({
-  align,
-  flexDirection,
-  justify,
   children,
   ...rest
 }) => {
-  return React.createElement(StyledWrapper, Object.assign({
-    align: align,
-    flexDirection: flexDirection,
-    justify: justify
-  }, rest), children);
+  return React.createElement(StyledWrapper$1, Object.assign({}, rest), children);
 };
 
 export { FlexElement, Header, Wrapper };

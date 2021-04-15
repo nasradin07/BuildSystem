@@ -9,7 +9,7 @@ export const StyledHeader = styled(Header)`
 
 export const StyledWrapper = styled(Wrapper)`
   background-color: #fff;
-  height: 10vh;
+  height: 50vh;
 `
 
 export const StyledFlexElement = styled(FlexElement)`

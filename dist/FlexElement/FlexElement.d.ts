@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyledFlexElementProps } from './styled';
 declare type FlexElementProps = StyledFlexElementProps & {
-    [k: string]: any;
+    color?: string;
 };
 export declare const FlexElement: React.FC<FlexElementProps>;
 export {};

@@ -9,11 +9,16 @@ export const StyledHeader = styled.div<StyledHeaderProps>(
     box-sizing: border-box;
     margin: 0;
     color: rgba(0,0,0,.85);
-    font-size: 14px;
     line-height: 1.5715;
     list-style: none;
     position: relative;
     padding: 16px 24px;
     background-color: #fff;
+`
+)
+
+export const StyledHeaderWrapper = styled.div<{ fontSize: number }>(
+  ({ fontSize }) => `
+  font-size: ${fontSize}px;
 `
 )

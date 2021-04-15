@@ -1,19 +1,23 @@
 import React from 'react'
-// eslint-disable-next-line no-unused-vars
-import { StyledFlexElement, StyledFlexElementProps } from './styled'
+import {
+  StyledFlexElement,
+  // eslint-disable-next-line no-unused-vars
+  StyledFlexElementProps,
+  StyledWrapper
+} from './styled'
 
 type FlexElementProps = StyledFlexElementProps & {
-  [k: string]: any
+  color?: string
 }
 
 export const FlexElement: React.FC<FlexElementProps> = ({
-  column,
+  color,
   children,
   ...rest
 }) => {
   return (
-    <StyledFlexElement column={column} {...rest}>
-      {children}
-    </StyledFlexElement>
+    <StyledWrapper color={color}>
+      <StyledFlexElement {...rest}>{children}</StyledFlexElement>
+    </StyledWrapper>
   )
 }

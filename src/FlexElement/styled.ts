@@ -9,3 +9,9 @@ export const StyledFlexElement = styled.div<StyledFlexElementProps>(
  flex: ${column / 24};
 `
 )
+
+export const StyledWrapper = styled.div<{ color?: string }>(
+  ({ color }) => `
+  color: ${color || 'black'};
+`
+)
